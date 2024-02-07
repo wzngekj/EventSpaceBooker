@@ -16,8 +16,11 @@ Urban Boulevard is a concise, straightforward booking system allowing for users 
 ![image](https://github.com/wzngekj/EventSpaceBooker/assets/147592707/56ae2f2e-bc9e-4a57-b8f0-b38bb34adc8f)
 ### REGISTER PAGE
 ![image](https://github.com/wzngekj/EventSpaceBooker/assets/147592707/9663236a-ccac-4cef-a3c8-592e6fd9e6cf)
+- Disabled register button as conditions are not met
 ![image](https://github.com/wzngekj/EventSpaceBooker/assets/147592707/4a5103f1-651b-40b7-9de0-dd7e937ec7f0)
+- Register button enabled
 ![image](https://github.com/wzngekj/EventSpaceBooker/assets/147592707/b0fc97b7-1857-4629-8970-30736aca261b)
+- Prompt after clicking register
 ![image](https://github.com/wzngekj/EventSpaceBooker/assets/147592707/121d22e4-ba4c-48b6-b839-6cd75542734a)
 - Users are routed to the register page by `"\register"`
 - Mandates the fundamentals of a register page, including the name, email, password and re-enter password fields
@@ -27,6 +30,10 @@ Urban Boulevard is a concise, straightforward booking system allowing for users 
   * `Condition 3`: Javascript is used to verify whether the password entered is strong enough, in which in the software, is determined by the length. Once the password is longer than 8 characters, the `WEAK PASSWORD!` will disappear and this condition is now true.
   * `Condition 4`: Lastly, javascript is used to verify whether the 2 password field matches, if valid the last condition is true and the register button is enabled. At the top has demonstrated a few cases of the register button activation
 - Once registered, the program re-routes you back to `"\login"` and prompts you to log in with the user's new credentials
+### AREA PAGE
+![image](https://github.com/wzngekj/EventSpaceBooker/assets/147592707/729f6c51-a204-41f5-a92e-59b9822d2a53)
+![image](https://github.com/wzngekj/EventSpaceBooker/assets/147592707/c6930600-2f1f-4493-bf57-fdf9964977ba)
+
 
 
 
