@@ -1,6 +1,6 @@
 from cs50 import SQL
 from flask import Flask, url_for, redirect, render_template, request, session
-
+from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
 app.secret_key = "xj73nvn2896hb"
@@ -38,7 +38,7 @@ def login():
             submitted_password = request.form.get("password")
             result2 = crdb.execute("SELECT PASSWORDS FROM credentials WHERE EMAIL = ?", email)
             correct_password = result2[0]["PASSWORDS"]
-            if submitted_password == correct_password:
+            if check_password_hash(submitted_password,correct_password) == True:
                 session["name"] = request.form.get("email")
                 return redirect("/area")
             else:
@@ -53,7 +53,7 @@ def register():
         name = request.form.get("name")
         email = request.form.get("email")
         password = request.form.get("password")
-        crdb.execute("INSERT INTO credentials (FULLNAME,EMAIL,PASSWORDS) VALUES(?,?,?)",name,email,password)
+        crdb.execute("INSERT INTO credentials (FULLNAME,EMAIL,PASSWORDS) VALUES(?,?,?)",name,email,generate_password_hash(password))
         return redirect(url_for("login"))
     else:
         return render_template("register.html")
