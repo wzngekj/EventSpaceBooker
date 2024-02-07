@@ -1,17 +1,30 @@
 from cs50 import SQL
 from flask import Flask, url_for, redirect, render_template, request, session
 
+
 app = Flask(__name__)
 app.secret_key = "xj73nvn2896hb"
 
+
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
+
 
 #very useful function [  SQL( )  ] provided by cs50 to help shorten the execution of further function like .execute etc
 crdb = SQL("sqlite:///data/credentials.db")
 bkdb = SQL("sqlite:///data/bookings1.db")
 bk2db = SQL("sqlite:///data/bookings2.db")
 bk3db = SQL("sqlite:///data/bookings3.db")
+
+
+@app.after_request
+def after_request(response):
+    """Ensure responses aren't cached"""
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Expires"] = 0
+    response.headers["Pragma"] = "no-cache"
+    return response
+
 
 @app.route("/", methods=["GET", "POST"])
 def login():
@@ -92,6 +105,7 @@ def particulars():
     else:
         session["space"] = request.args.get("space")
         return render_template("particulars.html")
+
 
 @app.route("/table", methods=["GET", "POST"])
 def table():
