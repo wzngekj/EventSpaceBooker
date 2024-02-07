@@ -30,15 +30,12 @@ def after_request(response):
 def login():
     if request.method == "POST":
         email = request.form.get("email")
-        result = crdb.execute("SELECT COUNT(*) as count FROM credentials WHERE EMAIL = ?", email)
-        valid_email_count = result[0]['count']
-        if valid_email_count == 0:
+        result = crdb.execute("SELECT * FROM credentials WHERE EMAIL = ?", email)
+        if len(result) == 0:
             return render_template("relogin.html")
         else:
             submitted_password = request.form.get("password")
-            result2 = crdb.execute("SELECT PASSWORDS FROM credentials WHERE EMAIL = ?", email)
-            correct_password = result2[0]["PASSWORDS"]
-            if check_password_hash(submitted_password,correct_password) == True:
+            if check_password_hash(result[0]["PASSWORDS"],submitted_password) == True:
                 session["name"] = request.form.get("email")
                 return redirect("/area")
             else:
