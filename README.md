@@ -9,7 +9,7 @@ Urban Boulevard is a concise, straightforward booking system allowing for users 
   * A key feature implemented is the toggling of the eye icon switching from eye-no-slash and eye-slash allowing the user to conceal and reveal the password
 - Upon submitting the form, 2 kinds of backend verification are conducted by querying using SQL on the credentials table in `credentials.db`
   * To check for valid email, if no valid email is found, the system redirects the user to `relogin.html` where the page prompts the user to re-enter the password and username, displaying an incorrect password or username message
-  * After a valid email is found, the system further checks if the password registered and associated with the matches with the password input, if not `relogin.html` is rendered
+  * After a valid email is found, the system further checks if the password registered and associated with the matches with the password input, if not `relogin.html` is rendered. In this software, a library specialising in giving hashing functions is used and each password when registered is hashed with a hashing algorithm, in which in the login page, can be checked by passing the user's password input into the `check_password_hash` and if hashed and matches the password in the database, is guranteed entry
 - Upon successful authentication, the user is redirected to `"/area"`
   * session is used in the software for temporary memory logging
 - If the user is new and wishes to register, a click on the `Register Now` will bring the user to the register page from `register.html` by the re-routing to `/register`
@@ -30,6 +30,7 @@ Urban Boulevard is a concise, straightforward booking system allowing for users 
   * `Condition 2`: Javascript and RegEx is used to verify if the email input ends with a specific pattern ` pattern = ".+@.+\.com"`. Upon valid pattern, condition 2 is true and additionally, the `INVALID EMAIL!` will disappear
   * `Condition 3`: Javascript is used to verify whether the password entered is strong enough, in which in the software, is determined by the length. Once the password is longer than 8 characters, the `WEAK PASSWORD!` will disappear and this condition is now true.
   * `Condition 4`: Lastly, javascript is used to verify whether the 2 password field matches, if valid the last condition is true and the register button is enabled. At the top has demonstrated a few cases of the register button activation
+- Password is hashed using `generate_password_hash` and stored in `credentials.db`
 - Once registered, the program re-routes you back to `"/login"` and prompts you to log in with the user's new credentials
 ### AREA PAGE
 ![image](https://github.com/wzngekj/EventSpaceBooker/assets/147592707/729f6c51-a204-41f5-a92e-59b9822d2a53)
