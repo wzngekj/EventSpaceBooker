@@ -50,7 +50,7 @@ Urban Boulevard is a concise, straightforward booking system allowing for users 
 ![image](https://github.com/wzngekj/EventSpaceBooker/assets/147592707/62f23dcf-3836-496a-a7f8-8b5f64139748)
 - Invalid timing
 ![image](https://github.com/wzngekj/EventSpaceBooker/assets/147592707/3153deac-ac20-4713-9ec8-0acff45bc2b7)
--Overlapped timing
+- Overlapped timing
 ![image](https://github.com/wzngekj/EventSpaceBooker/assets/147592707/01a23fe1-c5f7-4c29-ad89-abb2e20f9034)
 - Users essentially fill up the fields required which are `name, purpose, date, timestart and timeend`
 - A feature of this page is the disabled button which has the same principles as the above making sure all fields are filled up
